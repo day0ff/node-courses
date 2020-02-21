@@ -1,0 +1,19 @@
+{
+  "name": "color-console",
+  "version": "1.0.0",
+  "description": "Example of using chalk module.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chalk",
+    "console",
+    "color"
+  ],
+  "author": "Denis Vershadov",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0"
+  }
+}
