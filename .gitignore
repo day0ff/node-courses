@@ -1,11 +1,11 @@
-# compiled output
-/temp
+# support directory
+**/temp
 
 # IDEs and editors
-/.idea
+**/.idea
 
 # dependencies
-/node_modules
+**/node_modules
 
 # snapshot
 package-lock.json
