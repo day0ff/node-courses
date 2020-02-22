@@ -1,0 +1,21 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "Example of notes app that controls from command line and stored notes to file system.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yargs",
+    "process",
+    "argv",
+    "comand line",
+    "fs"
+  ],
+  "author": "Denis Vershadov",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^15.1.0"
+  }
+}
