@@ -12,14 +12,14 @@ module.exports = {
 
 async function addNote({title, body}) {
     const data = await readFile();
-    const isNewNote = data.filter(value => value.title === title).length;
+    const isNewNote = !data.find(value => value.title === title);
     if (isNewNote) {
+        await writeFile([...data, {title, body}]);
+        console.log(`Added new note:\t${title}`);
+    } else {
         const newData = data.reduce((acc, value) => value.title === title ? [...acc,{title, body}] : [...acc,value], []);
         await writeFile(newData);
         console.log(`Changed note:\t${title}`);
-    } else {
-        await writeFile([...data, {title, body}]);
-        console.log(`Added new note:\t${title}`);
     }
 }
 
@@ -36,9 +36,9 @@ async function removeNote({title}) {
 
 async function readNote({title}) {
     const data = await readFile();
-    const note = data.filter(value => value.title === title);
-    if(note.length) {
-        console.log(`Read note:\t${note[0].title}:"${note[0].body}"`);
+    const note = data.find(value => value.title === title);
+    if(note) {
+        console.log(`Read note:\t${note.title}:"${note.body}"`);
     }else{
         console.log(`Record with the title "${title}" not found.`);
     }
