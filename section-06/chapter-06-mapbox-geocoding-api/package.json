@@ -1,0 +1,19 @@
+{
+  "name": "mapbox-example",
+  "version": "1.0.0",
+  "description": "Exaple of using mapbox.com geocoding api.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mapbox",
+    "geocoding",
+    "api"
+  ],
+  "author": "Denis Vershadov",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
