@@ -28,4 +28,12 @@ app.get('/help', (req, res) => {
     res.render('help', {title: 'Help'});
 });
 
+app.get('/help/*', (req, res) => {
+    res.render('help', {title: 'Article not found.'});
+});
+
+app.get('*', (req, res) => {
+    res.render('404', {title: 'Page not found 404.'});
+});
+
 app.listen(3000, () => console.log('listening on port 3000'));
