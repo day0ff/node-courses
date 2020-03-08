@@ -1,0 +1,164 @@
+svg {
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    color: inherit;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 888px;
+    margin: 0 auto;
+}
+
+.error{
+    color: red;
+    text-align: center;
+}
+header {
+    display: flex;
+    align-items: flex-start;
+}
+
+header svg {
+    width: 48px;
+    height: 48px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form input {
+    width: 350px;
+    border: none;
+    border-bottom: solid 2px black;
+}
+
+form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+form button:hover {
+    cursor: pointer;
+}
+
+form button svg {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    transition: top 0.3s ease-in-out;
+}
+
+form button:hover svg {
+    top: -4px;
+}
+
+#content, article, section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content{
+    margin-top: 30px;
+}
+
+.now {
+    display: flex;
+    align-items: center;
+}
+
+.now .icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.now div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.now > * {
+    margin: 0 10px;
+}
+
+.now h2 {
+    margin: 0;
+}
+
+.now p {
+    margin: 0;
+}
+
+hr {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.weekly li {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    flex-wrap:wrap;
+}
+
+.weekly li > * {
+    margin: 0 15px;
+}
+
+.weekly .icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.weekly .day {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 24px;
+    text-align: center;
+    width: 30px;
+}
+
+.weekly .week-day {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 24px;
+    text-align: center;
+    width: 100px;
+}
+
+.weekly .hi, .weekly .low {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 21px;
+    text-align: center;
+    width: 30px;
+}
+
+.weekly .summary{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
+    text-align: center;
+}
+
+
