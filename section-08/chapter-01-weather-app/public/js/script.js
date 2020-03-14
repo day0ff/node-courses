@@ -7,17 +7,17 @@ window.onload = () => {
         event.preventDefault();
         content.innerHTML = `<p>Loading...</p>`;
         getForecast(input.value);
-    })
+    });
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
             const {latitude, longitude} = position.coords;
             getForecast(`${longitude},${latitude}`);
-        });
-    } else {
-        content.innerHTML = `<p>Please, enter the <b>address</b> where you want to find out the <b>weather</b>.</p>`;
-    }
-
+        },
+        () => {
+            content.innerHTML = `<p>Please, enter the <b>address</b> where you want to find out the <b>weather</b>.</p>`;
+        },
+        {enableHighAccuracy: false, timeout: 5000}
+    );
 };
 
 function getForecast(data) {
