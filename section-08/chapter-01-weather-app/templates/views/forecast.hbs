@@ -1,1 +1,46 @@
-{{>forecast}}
+{{#error}}
+    <article>
+        <h1 class="error">{{.}}</h1>
+    </article>
+{{/error}}
+{{^error}}
+    <article>
+        <h1>Weather in '{{geolocation.place_name}}'</h1>
+        <div class="now">
+            <div class="icon">
+                <svg>
+                    <use href="/svg/{{forecast.currently.icon}}.svg#{{forecast.currently.icon}}"></use>
+                </svg>
+            </div>
+            <div>
+                <h2>{{round forecast.currently.temperature}}&nbsp;˚C&nbsp;{{forecast.currently.summary}}.</h2>
+                <p>
+                    <span>Feels Like: {{round forecast.currently.apparentTemperature}}˚,</span>
+                    <span>{{forecast.currently.pressure}}&nbsp;kPa,</span>
+                    <span>{{round forecast.currently.windSpeed}}&nbsp;m/s</span>
+                </p>
+            </div>
+        </div>
+    </article>
+    <hr/>
+    <section>
+        <h2>Weekly</h2>
+        <ul class="weekly">
+            {{#each forecast.daily.data}}
+                <li>
+                    <span class="day">{{day time}}</span>
+                    <span class="icon">
+                        <svg>
+                            <use href="/svg/{{icon}}.svg#{{icon}}"></use>
+                        </svg>
+                    </span>
+                    <span class="week-day">{{#if @index}}{{weekday time}}{{else}}Today{{/if}}</span>
+                    <span class="hi">{{round temperatureHigh}}&nbsp;˚C</span>
+                    <span class="low">{{round temperatureLow}}&nbsp;˚C</span>
+                    <span class="summary">{{summary}}</span>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+{{/error}}
+

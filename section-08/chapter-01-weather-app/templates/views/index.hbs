@@ -16,7 +16,7 @@
         <h1>Weather application.</h1>
     </header>
     <form name="forecast">
-        <input type="text" name="address" value="Grodno" placeholder="enter address">
+        <input type="text" name="address" value="" placeholder="enter address">
         <button>
             <svg>
                 <use href="/svg/search.svg#search"></use>
@@ -24,8 +24,9 @@
         </button>
     </form>
     <div id="content">
-        {{>forecast}}
+        <p>Loading...</p>
     </div>
+    {{>footer}}
 </div>
 </body>
 </html>

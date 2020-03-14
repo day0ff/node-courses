@@ -5,7 +5,7 @@ const hbs = require('hbs');
 const getGeolocation = require('./geocoding');
 const getForecast = require('./forecast');
 
-const ADDRESS = process.env.ADDRESS || null;
+const PORT = process.env.PORT || 3000;
 
 const PATH_HBS_VIEWS_DIR = path.join(__dirname, '../templates/views');
 const PATH_HBS_PARTIALS_DIR = path.join(__dirname, '../templates/partials');
@@ -35,40 +35,27 @@ hbs.registerHelper('weekday', (time) => {
 app.use(express.static(PATH_PUBLIC_DIR));
 
 app.get('', (req, res) => {
-    getGeolocation(ADDRESS, (geolocation) => {
+    res.render('index');
+});
+
+app.get('/geolocation', (req, res) => {
+    getGeolocation(req.query.data, (geolocation) => {
         if (!geolocation) {
-            const message = `Can't get geolocation by addres: "${address}"`
+            const message = `Can't get geolocation by addres: "${address}"`;
             console.log(chalk.yellow.inverse(message));
-            res.render('index', {error: message});
+            res.render('forecast',{error: message});
             return;
         }
         if (geolocation.error) {
-            res.render('index', {error: geolocation.error});
+            res.render('forecast',{error: geolocation.error});
             return;
         }
-        const geoCoordinates = {
-            latitude: geolocation.center[1],
-            longitude: geolocation.center[0]
-        };
-        getForecast(geoCoordinates, (forecast) => {
-            const place = geolocation.place_name;
-            if (!forecast) {
-                const message = `Can't get weather for: "${place}"`;
-                console.log(chalk.yellow.inverse(message));
-                res.render('index', {error: message});
-                return;
-            }
-            if (forecast.error) {
-                res.render('index', {error: forecast.error});
-                return;
-            }
-            res.render('index', {geolocation, forecast});
-        });
+        res.send(geolocation);
     });
 });
 
 app.get('/forecast', (req, res) => {
-    getGeolocation(req.query.address, (geolocation) => {
+    getGeolocation(req.query.data, (geolocation) => {
         if (!geolocation) {
             const message = `Can't get geolocation by addres: "${address}"`;
             console.log(chalk.yellow.inverse(message));
@@ -100,5 +87,9 @@ app.get('/forecast', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('listening on port 3000'));
+app.get('*', (req, res) => {
+    res.render('404');
+});
+
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 
