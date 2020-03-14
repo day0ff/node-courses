@@ -1,5 +1,3 @@
-const url = window.location.href;
-
 window.onload = () => {
     const content = document.getElementById('content');
     const input = document.getElementsByName('address')[0];
@@ -23,7 +21,7 @@ window.onload = () => {
 };
 
 function getForecast(data) {
-    fetch(`${url}forecast?data=${data}`)
+    fetch(`/forecast?data=${data}`)
         .then(resp => resp.text())
         .then(resp => {
             content.innerHTML = resp;
