@@ -1,0 +1,19 @@
+{
+  "name": "mongo-driver",
+  "version": "1.0.0",
+  "description": "Mongo Nodejs driver.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongo",
+    "driver",
+    "node"
+  ],
+  "author": "Denis Vershadov",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.5.5"
+  }
+}
