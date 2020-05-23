@@ -1,0 +1,29 @@
+{
+  "name": "progress-tracker-for-kids",
+  "version": "1.0.0",
+  "description": "Progress tracker for kids that help kids to do their duties in playing form.",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "serve": "nodemon src/app.js -e js,hbs,css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "progress",
+    "tracker",
+    "kids",
+    "hbs",
+    "handlebars",
+    "express",
+    "template",
+    "view",
+    "engine",
+    "mustache"
+  ],
+  "author": "Denis Vershadov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.0"
+  }
+}

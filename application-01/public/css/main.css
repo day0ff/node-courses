@@ -1,0 +1,100 @@
+@import "/css/avatar.css";
+
+:root{
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url('/images/breadboard.png') 0 0 repeat;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vh;
+}
+
+.challenge{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+}
+
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vh;
+}
+
+.segment{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.reward{
+    text-align: center;
+}
+
+.coin{
+    height: 84px;
+    width: 84px;
+    background: url('/images/coin-sprite.png') 0 0;
+    filter:grayscale(1);
+}
+
+.coin:hover{
+    cursor: pointer;
+}
+
+.sprite{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 2s;
+}
+
+.question{
+    position: absolute;
+    color: white;
+    top:calc(50% - 32px);
+    left:calc(50% - 16px);
+    font-size: 64px;
+    z-index: 1;
+    transition: all 2s;
+}
+
+.question:hover{
+    cursor: pointer;
+}
+
+.closed{
+    filter: brightness(0);
+    color: white;
+}
+
+.chest{
+    width: 160px;
+    height: 160px;
+}
+
+.reward{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 160px;
+    height: 160px;
+    top:0;
+    left: 0;
+    transition: all 2s;
+}
